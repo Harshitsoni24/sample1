@@ -42,36 +42,7 @@
     <div class="container">
         <h2>Available Files for Download
         
-        import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
-class UserDAOTest {
-
-    private UserDAO userDAO;
-    private Connection connection;
-
-    @BeforeEach
-    void setUp() throws SQLException {
-        userDAO = new UserDAO();
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/parcel", "root", "srijan25");
-    }
-
-    @Test
-    void testValidLogin() {
-        boolean result = userDAO.validateLogin("srijan", "srijan25");
-        assertTrue(result, "Login should be successful");
-    }
-
-    @Test
-    void testInvalidLogin() {
-        boolean result = userDAO.validateLogin("wrongUser", "wrongPass");
-        assertFalse(result, "Login should fail");
-    }
-}</h2>
+        </h2>
         <ul id="file-list">
             <!-- File links will be inserted dynamically here -->
         </ul>
