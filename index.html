@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Files</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Available Files for Download
+        
+        import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+class UserDAOTest {
+
+    private UserDAO userDAO;
+    private Connection connection;
+
+    @BeforeEach
+    void setUp() throws SQLException {
+        userDAO = new UserDAO();
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/parcel", "root", "srijan25");
+    }
+
+    @Test
+    void testValidLogin() {
+        boolean result = userDAO.validateLogin("srijan", "srijan25");
+        assertTrue(result, "Login should be successful");
+    }
+
+    @Test
+    void testInvalidLogin() {
+        boolean result = userDAO.validateLogin("wrongUser", "wrongPass");
+        assertFalse(result, "Login should fail");
+    }
+}</h2>
+        <ul id="file-list">
+            <!-- File links will be inserted dynamically here -->
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Define files present in the current folder
+            const files = ["src.jpg", "Pra4.pdf","sprint-main.jpg", "IMG-20250304-WA0037.jpg","12.jpg","1234.docx","3.jpg"];
+
+            const fileList = document.getElementById("file-list");
+
+            // Create a list of download links
+            files.forEach(file => {
+                let listItem = document.createElement("li");
+                let link = document.createElement("a");
+                link.href = file;
+                link.textContent = file;
+                link.download = file;
+                listItem.appendChild(link);
+                fileList.appendChild(listItem);
+            });
+        });
+    </script>
+</body>
+</html>
